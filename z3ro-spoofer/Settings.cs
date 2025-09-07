@@ -8,6 +8,6 @@ namespace z3ro_spoofer
 {
     public class Settings
     {
-        public static string Version = "v1.0b";
+        public static string Version = "v1.1b";
     }
 }
