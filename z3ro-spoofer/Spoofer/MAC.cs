@@ -136,7 +136,6 @@ namespace z3ro_spoofer.Spoofer
 
         public static void Run()
         {
-            EnvHelper.SectHeader("MAC Spoofing", 196);
             SpoofMac();
         }
     }

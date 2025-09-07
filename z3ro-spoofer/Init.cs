@@ -15,6 +15,7 @@ namespace z3ro_spoofer
             LoggingService.Divider("Info");
             LoggingService.Log("Current spoofer version: " + Settings.Version);
 
+            EnvHelper.TerminateRoblox();
             Spoof.Autospoof();
         }
     }

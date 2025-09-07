@@ -32,7 +32,7 @@ namespace z3ro_spoofer
                     if (filename == pattern)
                     {
                         File.Delete(entry);
-                        Console.WriteLine("Deleted -> " + entry);
+                        LoggingService.Log("Deleted: " + entry);
                     }
                 }
             }
@@ -148,7 +148,7 @@ namespace z3ro_spoofer
                 var name = Path.GetFileName(f);
                 if (patterns.Contains(name))
                 {
-                    try { File.Delete(f); Console.WriteLine($"Deleted -> {f}"); } catch { }
+                    try { File.Delete(f);LoggingService.Log($"Deleted: {f}"); } catch { }
                 }
             }
         }
@@ -259,20 +259,6 @@ namespace z3ro_spoofer
             }
         }
 
-        public static void EnableAnsiColors()
-        {
-            var handle = GetStdHandle(STD_OUTPUT_HANDLE);
-            if (handle == IntPtr.Zero) return;
-            if (GetConsoleMode(handle, out uint mode)) SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
-        }
-
-        public static void SectHeader(string sectionName, int colorCode)
-        {
-            EnableAnsiColors();
-            Console.WriteLine($"\u001b[38;5;{colorCode}m");
-            Console.WriteLine($"============ {sectionName} ============");
-            Console.WriteLine("\u001b[0m");
-        }
 
         private const int STD_OUTPUT_HANDLE = -11;
         private const uint ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004;
